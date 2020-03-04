@@ -317,6 +317,12 @@ footer{
 
     border-radius: 15px;
 }
+#gblack{
+    width: 50%;
+    min-width: 200px;
+    display: block;
+    margin: 0px auto 55px;
+}
 /*Mobile----- Stop! Endangered Animals */
 .projImgA{
     width: 90%;
