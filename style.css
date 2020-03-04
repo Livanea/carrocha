@@ -11,7 +11,7 @@
             position: absolute;
             display: grid;
             grid-template-columns: 150px auto ;
-            grid-template-rows:  auto  90% 20px;
+            grid-template-rows:  auto  90% 5%;
                 
             grid-template-areas: 
                 "heading    content"
@@ -349,7 +349,6 @@
             height: 400px;
             padding: 20px;
             padding-right: 60px;
-            padding-bottom: 64px;
             margin-top: 60px;
             width: 400px;
             height: auto;
@@ -503,19 +502,6 @@
         }
         .contText:hover{
           color: #BE904B;
-        }
-        #behanceLink{
-            font-size: .8em;
-            text-align: center;
-            margin-top: 30px;
-            
-        }
-        #behanceLink a{
-            color:#F37970;
-            text-decoration: none;
-        }
-        #behanceLink a:hover{
-            color:#BE904B;
         }
         
         footer{

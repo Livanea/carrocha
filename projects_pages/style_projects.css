@@ -72,13 +72,6 @@ p{
     font-size: .9em;
     line-height: 1.5em;
 } 
-p a{
-    color:#F37970;
-    text-decoration: none;
-}
-p a:hover{
-    color:#BE904B;
-}
 .infoProj p:first-of-type{
     margin-top: 25px;
 }
@@ -145,12 +138,11 @@ p a:hover{
 #wire{
     font-size: .8em;
 }
-/*Gorreana*/
-#gblack{
-    width: 50%;
-    min-width: 500px;
-    display: block;
-    margin: 0px auto 55px;
+#wire a{
+    color:#F37970;
+}
+#wire a:hover{
+    color:#BE904B;
 }
 /*Os Lencos*/
 #ProjLencos {
@@ -316,11 +308,6 @@ footer{
     box-shadow: 15px 5px 15px rgb(236, 236, 236);
 
     border-radius: 15px;
-}
-#gblack{
-    width: 50%;
-    min-width: 200px;
-  
 }
 /*Mobile----- Stop! Endangered Animals */
 .projImgA{
