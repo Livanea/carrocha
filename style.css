@@ -273,8 +273,7 @@
             animation-duration: 5s;
             animation-fill-mode: both;
             animation-delay: 1s;
-        }    
-        #ref{
+        }            #ref{
             grid-area: references;
             align-self: start;
             
