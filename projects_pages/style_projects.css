@@ -145,7 +145,13 @@ p a:hover{
 #wire{
     font-size: .8em;
 }
-
+/*Gorreana*/
+#gblack{
+    width: 50%;
+    min-width: 500px;
+    display: block;
+    margin: 0px auto 55px;
+}
 /*Os Lencos*/
 #ProjLencos {
     position: absolute;
