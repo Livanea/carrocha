@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title> About me | Carla Rocha</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio">
+    <meta name="author" content="Carla Rocha">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400|Quicksand:200,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif:400,700|Raleway&display=swap" rel="stylesheet">
+
+    <style>
+        #about{
+            color:#F37970;
+        }
+        /*@media (max-width: 800px){
+        header::after{
+            content:"About me";
+            font-size: 1.4em;
+            font-weight: 400;
+            font-family: Raleway, sans-serif;
+
+            color:#F37970;
+            
+            position: absolute;
+            top: 65px;
+            right: 30px ;
+        }
+    }*/
+     
+    </style>
+
+</head>
+<body>
+<div id="first">
+        <header>
+            <h1>Carla Rocha</h1>
+        </header>
+        <img src="/burger.png" id="toggle" width="0" height="0" display="none">
+        <nav id="nave">
+            <ul>
+                <a href="portfolio.html">
+                    <li id="pfolio">Portfolio</li>
+                </a>
+                <a href= "cv.html">
+                    <li id="cv">Résumé</li>
+                </a>
+                <a href= "me.html">
+                    <li id="about">About me</li>
+                </a>
+                
+            </ul>
+            <div id= "icons">
+                <!-- icons Mail | Instagram | Linkedin-->
+                <a href = "mailto: carlarocha.wo@gmail.com" target="_blank" alt="email icon"  id="email">
+                    </a>
+                    <a href ="https://www.instagram.com/livanea/" target="_blank" alt="Instagram icon" id="instagram">
+                </a>
+                <a href ="https://www.linkedin.com/in/carla-rocha-9b2aaa82" target="_blank" alt="Linkedin icon" id="linkedin">
+                </a>
+                </div>
+        </nav>
+
+    <main>
+        <section id= sectionMe></section>
+            <img src="/img/Untitled-1 [Recovered].png" alt="Self-portrait ilustration" id="me">
+            <div id="textMe">
+                <h5>Hi, I am Carla!</h5>
+                <p>I am an islander from the Azores islands, Portugal. Thanks to 
+                having the ocean and the horizon as my constant background growing up or 
+                maybe thanks to the stories of the Portuguese Age of Discovery, or maybe thanks to my interest of legends and stories of faraway lands, I developed a passion 
+                for travelling and exploring new cultures.</p>
+                <p>Besides living in Portugal, both mainland and on the islands, I also 
+                    lived in Barcelona and in the Netherlands. I arrived in the USA 4 years ago, as an au pair with the intention of learning 
+                    some programming languages to complement my B.A. in Graphic and Multimedia Design.</p>
+
+            <h6>Interests:</h6>
+            <div id= "interests">
+                <!-- icons Photography | Reading | Traveling | Hiking | Dogs-->
+    
+                    <img src="/icons/photo.png" alt= "Photography" class="int">
+                    
+                    <img src="/icons/book.png" alt= "Reading" class="int" id="">
+                    
+                    <img src="/icons/travel.png" alt= "Travelling" class="int">
+                
+                    <img src="/icons/hiking.png" alt="Hiking" class="int">
+                
+                    <img src="/icons/baking.png" alt="Animals" class="int">
+            
+            </div> 
+            </div>
+        </section>
+    </main>
+  
+    <footer>
+        <p>Designed & developed by Carla Rocha</p>
+    </footer>
+</div>
+<script>
+
+var hamburger = document.getElementById("toggle");
+hamburger.style.left = window.innerWidth -50;
+
+
+hamburger.addEventListener("click",showMenu);  
+document.querySelector("header").addEventListener("touchstart",_ => console.log("Touched")); 
+
+function showMenu(){
+    console.log("here")
+    document.getElementById("nave").style.display = "block";
+    document.getElementById("nave").style.left = window.innerWidth -165;
+
+    hamburger.removeEventListener("click",showMenu);
+    hamburger.addEventListener("click",offMenu);
+}
+
+function offMenu() {
+    document.getElementById("nave").style.display = "none";
+    
+    hamburger.removeEventListener("click",offMenu);
+    hamburger.addEventListener("click",showMenu);
+}
+</script>
+    </body>
+    </html>
