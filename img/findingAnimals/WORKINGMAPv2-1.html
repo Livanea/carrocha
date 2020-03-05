@@ -528,7 +528,7 @@
     
     #proj {
         grid-area: proj;
-        min-width: 90%;
+        min-width: 100%;
         display:grid;
         grid-template-rows: 15% 50px 500px 5%;
         grid-template-areas: 
@@ -565,8 +565,7 @@
                 height: 48px;
                 z-index: 100;
         }
-      
-        
+ 
         #animalsApi {
             overflow: scroll;
             position: relative;
@@ -580,6 +579,9 @@
         #animalsApi li{
             padding: 20px 0px;
         }  
+        #animalsApi img{
+            padding: 0px 5px 5px 15px;
+        }
         
         main{
             grid-area: main;
@@ -602,46 +604,18 @@
             top:auto;
             left: 0;
             right:0;
-            margin: 495px 10% 0px;
-            margin-top: 500px;
+            margin: 420px 10% 20px;
+         
             background-color: rgba(104, 202, 195, 1);
             width: 70%;
             min-width: 150px;
            z-index: 10;
         }
-            /*body{
-                min-width: 400px;
-                overflow: scroll;
-                
-            }
-            #dropAnimals, label {
-                width: 40%;
-            }
-            #animalsApi {
-                width: 40%;
-                max-height: 45%; 
-                
-            }
-            #animalsApi img{
-                padding: 0px 10px 10px 0px;
-               
-            }
-              
-            #list{
-                top:22%;
-                right:0%;
-                width: 105px;
-                max-height: 70%;
-            }
-        
-            #list img{
-                width: 100px;
-                max-height: 200px;
-            }
-           
-
+        footer{
+            display: none;
+        }
+       
         }/*End Media/Mobile*/
-        footer{display: none;}
         
     </style>
     </body>
