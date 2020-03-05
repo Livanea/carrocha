@@ -289,6 +289,11 @@ footer{
     margin: 0px 25px 20px;
 }
 /*Mobile-----blue details*/
+#bdwebpages1{
+    width: 100%;
+    min-width: 200px;
+    margin-bottom: -30px;
+}
 #bdwebpages{
     width: 100%;
     min-width: 200px;

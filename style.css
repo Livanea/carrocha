@@ -268,12 +268,13 @@
             
         }
 
-        #pAd .bola{
+        #pAd .bola, #pAd1 .bola, #pAd2 .bola, #pAd3 .bola, #pAd4 .bola, #pAd5 .bola, #pAd6 .bola,#pAd7 .bola, #pAd8 .bola, #pAd9 .bola{
             animation-name: fillBar;
             animation-duration: 5s;
             animation-fill-mode: both;
             animation-delay: 1s;
-        }            #ref{
+        }            
+        #ref{
             grid-area: references;
             align-self: start;
             
