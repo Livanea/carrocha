@@ -311,7 +311,7 @@
             min-width: 60%;
 
             display:grid;
-            grid-template-rows: 15% 10% 70% 5%;
+            grid-template-rows: 120px 50px 70% 5%;
             grid-gap: 0px;
             grid-template-areas: 
                     "heading "
@@ -347,8 +347,6 @@
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             z-index: 1;
-           
-                
         }
         input[type="checkbox"] {
             display:none;
@@ -425,9 +423,7 @@
             width: 35px;
             padding-right: 30px;
             padding-left: 10px;
-            padding-bottom: 15px;
-            
-            
+            padding-bottom: 15px; 
         }
         a{
             color: #000;
@@ -443,14 +439,12 @@
             grid-area: main;
             font-family: 'Roboto', sans-serif; 
             margin: 0;
-            margin-right: -100px;
-                 
+            margin-right: -100px;        
         }
-
         #map{
             height:auto;
-            top:24.4%;
-             
+            min-height: 500px;
+            top:175px;
         }
         .marker {
             background-image: url('markerArtboard%201.png');
@@ -531,26 +525,12 @@
 
     .broff{display: none;}
 /*Mobile-----css for portfolio section*/ 
-    #map{
-        grid-area: main;
-        display: block;
-        position: relative;
-        padding-top: 5px;
-        width: auto;
-        height: 500px;
-        overflow-x: hidden;    
-        border: 2px solid red; 
-        }
-    .mapboxgl-canvas{
-        position: relative;
-        width: 100%;
-    }
     
     #proj {
         grid-area: proj;
         min-width: 90%;
         display:grid;
-        grid-template-rows: 15% 50px 70% 5%;
+        grid-template-rows: 15% 50px 500px 5%;
         grid-template-areas: 
             "heading "
             "nav"                    
@@ -585,42 +565,50 @@
                 height: 48px;
                 z-index: 100;
         }
-        #dropAnimals:checked + label:after{
-            content: "  ▼  ";
-            font-size: .75em;
-        }
-        #dropAnimals, label:hover{
-            background-color: #CCCCCC;
-        }
+      
         
         #animalsApi {
             overflow: scroll;
             position: relative;
             display: none;
-            
             height: auto;
             width: 43%;
-            max-height: 20%;
-            min-height: 300px;
+            max-height: 350px;
+            min-height: 200px;
         }
             
         #animalsApi li{
-            padding: 20px 20px;
-            border-bottom: 1px solid #43BCB3;
-            height: auto;
-            text-align: left;
-            margin-top: auto;
-            margin-bottom: auto;
-            align-self: center;
+            padding: 20px 0px;
         }  
-        #animalsApi li:first-child {
-            padding-top: 20px;
+        
+        main{
+            grid-area: main;
+            margin: 0;
+            padding: 0;}
+        #map{
+            position: absolute;
+            top: auto;
+            left:auto;
+            width: auto;
+            height: auto;
+            overflow-x: hidden; 
+            margin: 0px 10%;
         }
-        #animalsApi li:last-child {
-            border-bottom: none; 
-            padding-bottom: 15px;
+        
+        #list{
+            display:none;
+            position: absolute;
+            overflow: auto;
+            top:auto;
+            left: 0;
+            right:0;
+            margin: 495px 10% 0px;
+            margin-top: 500px;
+            background-color: rgba(104, 202, 195, 1);
+            width: 70%;
+            min-width: 150px;
+           z-index: 10;
         }
-
             /*body{
                 min-width: 400px;
                 overflow: scroll;
