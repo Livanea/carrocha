@@ -110,11 +110,12 @@ p a:hover{
 }
 
 /*blue details*/
+
 #bdwebpages{
     width: 90%;
     min-width: 600px;
-    padding-bottom: 0px;
-    margin-bottom: 0;
+    display: block;
+    margin: 0px auto;
   
 }
 /*Azores Box*/
@@ -289,15 +290,11 @@ footer{
     margin: 0px 25px 20px;
 }
 /*Mobile-----blue details*/
-#bdwebpages1{
-    width: 100%;
-    min-width: 200px;
-    margin-bottom: -30px;
-}
+
 #bdwebpages{
-    width: 100%;
+    width: 95%;
     min-width: 200px;
-    margin-bottom: -70px;
+    margin-bottom: -10px;
 }
 /*Mobile----- Azores Box*/
 #azoresboxpages:first-of-type{
