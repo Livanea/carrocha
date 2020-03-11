@@ -21,16 +21,16 @@
     <header>
         <h1>Carla Rocha</h1>
     </header>
-    <img src="/burger.png" id="toggle">
-    <nav id="nave">
+    <img src="/burger.png" id="toggle" alt="hamburger menu">
+    <nav id="fix">
         <ul>
-            <a href="portfolio.html" id="bt1" class="hyper">
+            <a href="portfolio.html">
                 <li id="pfolio" class="pagina">Portfolio</li>
             </a>
-            <a href= "cv.html" id="bt2" class="hyper">
+            <a href= "cv.html">
                 <li id="cv" class="pagina">Résumé</li>
             </a>
-            <a href= "me.html" id="bt3" class="hyper">
+            <a href= "me.html">
                 <li id="about" class="pagina">About me</li>
             </a>
             
@@ -356,21 +356,21 @@
 
     function showMenu(){
         console.log("here")
-        document.getElementById("nave").style.display = "block";
-        document.getElementById("nave").style.left = window.innerWidth -165;
+        document.getElementById("fix").style.display = "block";
+        document.getElementById("fix").style.left = window.innerWidth -165;
 
         hamburger.removeEventListener("click",showMenu);
         hamburger.addEventListener("click",offMenu);
     }
 
     function offMenu() {
-        document.getElementById("nave").style.display = "none";
+        document.getElementById("fix").style.display = "none";
         
         hamburger.removeEventListener("click",offMenu);
         hamburger.addEventListener("click",showMenu);
     }
 
-    //collapsible display
+    //collapsible Letter of recomendation
     var coll = document.getElementsByClassName("collapsible");
   
     var i;

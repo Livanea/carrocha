@@ -50,7 +50,10 @@
         a:hover{
            color:  #BE904B;
         }
-        
+        #toggle{
+            width:0;
+            height:0;
+        }
         nav{
             position: fixed;
             z-index: 4;
@@ -133,7 +136,7 @@
         #one{
             display: grid;
             grid-template-columns: 60% 40%;
-            grid-template-rows:  [row1-start] auto [row1-end row2-start] auto [row2-end row3-start] 12% [row3-end row4-start] auto [row4-end];
+            grid-template-rows:  auto auto 12% auto [row4-end];
                 
             grid-template-areas: 
                 "overview     overview"
@@ -394,11 +397,6 @@
         }
     /*end me*/
     /*portfolio*/
-        #toggle{
-            width:0;
-            height:0;
-  
-        }
         .oneThird{
             display: inline-block;
             overflow: hidden;
@@ -577,10 +575,9 @@
         background: none;
     }
     #toggle{
-        display: block;
         position: absolute; 
         top: 18px; 
-        right: 10px;
+        right: 23px;
         z-index: 10;
         width: 22px;
         height: 22px;
@@ -599,7 +596,22 @@
         border: 1px solid #F37970; 
         border-top: 4px solid #FFF;
         border-radius: 0px 0px 4px 4px;
-        margin: 0px -5px;
+        margin: 0px 0px;
+        box-shadow: 1px 2px 2px rgba(158, 158, 158, 0.2);
+    }
+    #fix{
+        position: absolute;
+        top: 54px;
+        left: auto;
+        right:0px;
+        display: none;
+        width: 135px;
+        height: auto;
+        padding: 10px 10px 0px 20px;
+        border: 1px solid #F37970; 
+        border-top: 4px solid #FFF;
+        border-radius: 0px 0px 4px 4px;
+        margin: 0px 0px 0px -8px;
         box-shadow: 1px 2px 2px rgba(158, 158, 158, 0.2);
     }
 
@@ -691,6 +703,7 @@
 
     .sel{
         margin: 5px 0px;
+        min-width: 80%;
     }
     h3{
         font-size: 1.3em;
@@ -740,13 +753,15 @@
     .line {
     width: auto;
     margin-left: 60px;
+    margin-right: 0;
+    min-width: 190px;
     }
     .bola{ 
         height: 9px;
         width: 9px; 
         background:none;
         border: 2px solid #F37970 ;
-        margin: 0px 2px;   
+        margin: 0px 1px;   
     }
     #ref p{
         margin-bottom: 8px;
