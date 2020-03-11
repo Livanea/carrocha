@@ -54,7 +54,7 @@
         nav{
             position: fixed;
             z-index: 4;
-            width: 115px;
+            width: 135px;
             height: 100%;
             grid-area: nav;
             border-right: 1px solid #F37970; 
@@ -77,11 +77,11 @@
         }
    
 
-        #email, #instagram, #linkedin{
+        #email, #instagram, #linkedin, #github{
             height: 20px;
             width: 20px;
             display: inline-block;
-            margin:30px 6px 6px;
+            margin:30px 5px 6px;
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -105,6 +105,12 @@
         }
         #linkedin:hover{
             background-image: url("/icons/linkedinhover.png");
+        }
+        #github{
+            background-image: url("/icons/grithub-01.png");
+        }
+        #git:hover{
+            background-image: url("/icons/grithubhover-01.png");
         }
         
         main{
@@ -143,6 +149,7 @@
       
         .sel{
             margin-top: 20px;
+            min-width: 320px;
         }
         h3{
             font-family: 'Quicksand', sans-serif;
@@ -243,6 +250,7 @@
         .line {
            margin-left: 70px;
            width: 300px;
+           min-width: 300px;
            /*border: 1px solid red;*/
            position: absolute;
            z-index: -1;
@@ -585,30 +593,31 @@
         left: auto;
         right: 10px;
         display: none;
+        width: 135px;
         height: auto;
-        padding: 10px 20px 0px;
+        padding: 10px 10px 0px 20px;
         border: 1px solid #F37970; 
         border-top: 4px solid #FFF;
         border-radius: 0px 0px 4px 4px;
-        margin: 0px 0px;
+        margin: 0px -5px;
         box-shadow: 1px 2px 2px rgba(158, 158, 158, 0.2);
-
     }
 
     ul  {
         font-size:  1em;
     }
 
-    #email, #instagram, #linkedin{
+    #email, #instagram, #linkedin, #github{
         height: 21px;
         width: 21px;
-        margin:20px 8px 8px;
+        margin:25px 5px 10px;
     }
     #email{
         width: 25.6;
-        margin-left: 0;
+        margin-left: -2px;
     }
-    #linkedin{
+    #github{
+        margin-left: 4px;
         margin-right: 0px;
     }
     main{
@@ -625,14 +634,14 @@
         height: 200px;
         min-width: 200px;
         min-height: 200px;
-        margin:10px auto 5px;
+        margin:10px auto 50px;
         padding: 0;
     }
     #textMe{
         margin: 0;
         padding: 0px;
         width: 95%;
-        min-width: 80%;
+        min-width: 250px;
         font-size: .9em;
     }
     #textMe h5{
