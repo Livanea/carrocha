@@ -112,7 +112,7 @@
         #github{
             background-image: url("/icons/grithub-01.png");
         }
-        #git:hover{
+        #github:hover{
             background-image: url("/icons/grithubhover-01.png");
         }
         
