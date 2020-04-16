@@ -330,6 +330,7 @@
         } 
         .letter.open {
             height:inherit;
+            margin-bottom: 30px;
         }
         .letter p{
             font-size: .8em;
@@ -337,6 +338,10 @@
             text-indent: 12px;
             line-height: 1.4em;
             margin-top: 5px;
+        }
+        #lastLetter.open{
+            margin-bottom: 100px;
+
         }
         #pdf{
             top:100%;
