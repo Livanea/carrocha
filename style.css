@@ -6,6 +6,7 @@
         body{
             margin: -5px 0px 20px -5px;
             font-family: 'PT Serif', serif;
+            font-size: 1em;
         }
         #first{
             position: absolute;
