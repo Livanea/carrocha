@@ -387,6 +387,9 @@
             font-weight: 500;
             color: #BB6248;
         }
+        #interests{
+            padding-top: 2px;
+        }
     	.int {
             height: 30px;
             width: 30px;
