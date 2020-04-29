@@ -93,7 +93,7 @@
         </section>
     </main>
   
-    <footer></footer>
+    <footer id="foot">
         <p>Designed & developed by Carla Rocha</p>
     </footer>
 </div>
@@ -101,7 +101,8 @@
 
 var hamburger = document.getElementById("toggle");
 hamburger.style.left = window.innerWidth -50;
-
+var pe = document.getElementById("foot");
+pe.style.bottom = window.innerWidth;
 
 hamburger.addEventListener("click",showMenu);  
 document.querySelector("header").addEventListener("touchstart",_ => console.log("Touched")); 
