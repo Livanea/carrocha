@@ -28,7 +28,7 @@
         header{
             margin-left: -25px;
             grid-area: heading;
-            font-size: .7em;
+            font-size: .8em;
             font-weight: 700; 
             padding: 25px 40px 25px 30px;  
             position: fixed;
