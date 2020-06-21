@@ -202,20 +202,44 @@
         var i;
         if( w > 1000){
             for (i = 0; i < imgThirds.length; i++) {
-                imgThirds[i].style.width = wthirds-150 +"px";   
+                imgThirds[i].style.width = wthirds-155+"px";   
                 imgThirds[i].style.margin = "10px";
-            //console.log('bigger than 950');
+            //console.log('bigger than 1000');
             }
         }
-        if ( w <= 1000 && w > 750){
+        if ( w <= 1000 && w >= 910){
             for (i = 0; i < imgThirds.length; i++) {
-                imgThirds[i].style.width = w/2-200 +"px";  
+                imgThirds[i].style.width = w/3.8 +"px";  
                 imgThirds[i].style.margin = "10px";
-            } //console.log('less than 100');
-        }if ( w <= 750 && w >300){
+            } ;
+        }if ( w < 910 && w > 863){
             for (i = 0; i < imgThirds.length; i++) {
-                imgThirds[i].style.width = w/2 - 60 +"px";
+                imgThirds[i].style.width = w/4 +"px";  
+                imgThirds[i].style.margin = "10px";
+            } ;
+            }if ( w <=863 && w > 800){
+            for (i = 0; i < imgThirds.length; i++) {
+                imgThirds[i].style.width = w/4 -20 +"px";  
+                imgThirds[i].style.margin = "10px";
+            } ;
+            }
+            if ( w <= 765 && w >710){
+            for (i = 0; i < imgThirds.length; i++) {
+                imgThirds[i].style.width = w/3 + 50 +"px";
                 imgThirds[i].style.height = hthirds+"px";  
+                imgThirds[i].style.margin = "10px";
+            }//console.log('less than 750');
+        }if ( w <= 710 && w >450){
+            for (i = 0; i < imgThirds.length; i++) {
+                imgThirds[i].style.width = w/3 +"px";
+                imgThirds[i].style.height = hthirds+"px";  
+                imgThirds[i].style.margin = "10px";
+            }//console.log('less than 750');
+        }
+        
+        if ( w <= 450 && w >300){
+            for (i = 0; i < imgThirds.length; i++) {
+                imgThirds[i].style.width = w -95+"px";   
                 imgThirds[i].style.margin = "10px";
             }//console.log('less than 750');
         }if ( w <= 300){
