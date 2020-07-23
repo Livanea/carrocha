@@ -41,9 +41,7 @@
             text-decoration: none;
             color:  #000;
         }
-        .carrocha:hover {
-            content: "Carla Rocha"
-        }
+       
         p{
             line-height: 1.6em;
         }
