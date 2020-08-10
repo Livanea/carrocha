@@ -29,7 +29,7 @@ header{
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url("/icons/back.png");
-    
+    z-index: 10;
 }
 .bckbt:hover{
     background-image: url("/icons/backhover.png");
@@ -51,6 +51,8 @@ main{
     height: 90%;
     padding: 0px 50px 53px;
     border-right: 1px solid #F37970;
+    background-color: #fff;
+    z-index: 2;
 }
 
 h5{
@@ -83,11 +85,12 @@ p a:hover{
     margin-top: 25px;
 }
 .date{
-    font-weight: 200;
+    font-weight: 300;
 }
 .hdg{
     font-weight: 400;
 }
+
 .proj {
     display: block;
     grid-area: projImg;
@@ -128,10 +131,12 @@ p a:hover{
 }
 .subtitle{
     font-family: 'Quicksand', sans-serif;
-    font-size: .7em;
-    font-weight: 200;
+    font-size: .75 em;
+    font-weight: 400;
     text-align: center;
-    margin: 0px auto 20px auto;
+    margin: 0px auto auto;
+    max-width: 70%;
+
 }
 /*Learning */
 .projImgLearn{
@@ -203,8 +208,42 @@ p a:hover{
     margin: 10px auto;
     display: block;
 }
+/*WellnessMatch*/
+#logoWellness{
+    padding: 0;
+    margin-top: -70px;
+    margin-bottom: 0;
+    width: 70%;
+}
+.linkComp{
+    color: #000;
+    }
+    
+#infosubtitle{
+    display: grid;
+    grid-template-columns: auto 50%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+        "subtitles   img";
+    padding: 80px 5px;
 
-
+}
+#subtitleWell{
+    grid-area: subtitles;
+    margin: auto;
+    padding: 0;
+}
+#inspo{
+    grid-area: img;
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+#wellnessIMG{
+    border-top: dotted 1px #f37970;
+    padding-top: 80px;
+}
+/*End --- WellnessMatch*/
 footer{
     display: block;
     grid-area: footer;
@@ -217,8 +256,8 @@ footer{
     background-color: white;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    padding: 9px 0px;
+    font-weight: 400;
+    padding: 10px 0px;
     font-size: .7em;
 }
 
@@ -284,10 +323,10 @@ footer{
 }
 .subtitle{
     font-family: 'Quicksand', sans-serif;
-    font-size: .7em;
-    font-weight: 200;
+    font-weight: 400;
     text-align: center;
-    margin: 0px 25px 20px;
+    min-width: 50px;
+    margin: 0px auto 20px;
 }
 /*Mobile-----blue details*/
 
@@ -363,7 +402,36 @@ footer{
 }
 
 /*Mobile------ End - Os Lencos*/
+/*WellnessMatch*/
+#logoWellness{
+    margin: 50px auto;
+}
+#infosubtitle{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "subtitles"
+        "img";
+    padding: 40px 5px;
+}
 
+#inspo{
+    grid-area: img;
+    width: 85%;
+    max-width: 600px;
+    display: block;
+    margin: 40px auto 0px;
+    padding-bottom: 50px;
+    border-bottom: 1px dotted #F37970;
+}
+#wellnessIMG{
+    border: none;
+    padding-top: -20px;
+    padding-top: 0;
+    width: 100%;
+}
+/*End --- WellnessMatch*/
 footer{
     display: block;
     grid-area: footer;
@@ -376,7 +444,7 @@ footer{
     background-color: white;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 400;
     padding: 9px 0px;
     font-size: .7em;
 }

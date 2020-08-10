@@ -428,6 +428,12 @@
             background-image: url("/img/findingAnimals/Artboard\ 1.png");
             background-color: rgb(253, 253, 241);
         }
+        #wellness{
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("/img/wellnessMatch/logo_WellnesMatch.png");
+            background-color: rgb(240, 242, 243);
+        }
         #blueD{
             background-size: contain;
             background-repeat: no-repeat;

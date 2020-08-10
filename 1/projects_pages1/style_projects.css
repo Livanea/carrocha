@@ -1,0 +1,456 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#col{
+    font-family: 'Montserrat', Raleway, sans-serif;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 75px auto 40px;
+    grid-row-gap: 20px;
+    grid-template-areas: 
+        "heading"
+        "proj"
+        "footer";
+}
+
+header{
+    grid-area: heading; 
+    position: fixed;
+    margin: 15px;
+    z-index: 5;
+}
+
+.bckbt{
+    height: 40px;
+    width: 40.1px;
+    margin-left: 35px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("/icons/back.png");
+    z-index: 10;
+}
+.bckbt:hover{
+    background-image: url("/icons/backhover.png");
+}
+main{
+    grid-area: proj;
+    display: grid;
+    grid-template-columns: 340px auto;
+    grid-column-gap: 20px;
+    grid-template-areas: 
+        "info      projImg";
+
+}
+.infoProj {
+    grid-area: info;
+    position: fixed;
+    top: 90px;
+    width:280px;
+    height: 90%;
+    padding: 0px 50px 53px;
+    border-right: 1px solid #F37970;
+    background-color: #fff;
+    z-index: 2;
+}
+
+h5{
+    font-family: 'Quicksand', sans-serif;
+    color: #BB6248;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 20px;
+}
+h6{
+    font-family: 'Quicksand', sans-serif;
+    font-size: .9em;
+    line-height: 1.8em;
+    font-weight: 200;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #F37970;
+}
+
+p{
+    font-size: .9em;
+    line-height: 1.5em;
+} 
+p a{
+    color:#F37970;
+    text-decoration: none;
+}
+p a:hover{
+    color:#BE904B;
+}
+.infoProj p:first-of-type{
+    margin-top: 25px;
+}
+.date{
+    font-weight: 400;
+}
+.hdg{
+    font-weight: 600;
+}
+
+.proj {
+    display: block;
+    grid-area: projImg;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;  
+}
+
+.projImg:first-of-type{
+    padding-top: 5px;
+    padding-bottom: 80px;
+    width: 50%;
+    min-width: 450px;
+}
+.projImg{
+    width: 80%;
+    min-width: 500px;
+    display: block;
+    margin: 0px auto 15px;
+}
+
+/*blue details*/
+
+#bdwebpages{
+    width: 90%;
+    min-width: 600px;
+    display: block;
+    margin: 0px auto;
+  
+}
+/*Azores Box*/
+#azoresboxpages:first-of-type{
+    padding-top: 0;
+    width: 80%;
+    min-width: 600px;
+    display: block;
+    margin: 0px auto 15px;
+}
+.subtitle{
+    font-family: 'Quicksand', sans-serif;
+    font-size: .75 em;
+    font-weight: 400;
+    text-align: center;
+    margin: 0px auto auto;
+    max-width: 70%;
+
+}
+/*Learning */
+.projImgLearn{
+    width: 60%;
+    min-width: 500px;
+    display: block;
+    margin: 0px auto 55px;
+    border: 1px solid rgb(238, 238, 238) ;
+    box-shadow: 15px 5px 15px rgb(236, 236, 236);
+    border-radius: 12px;
+}
+#wire{
+    font-size: .8em;
+}
+/*Gorreana*/
+#gblack{
+    width: 50%;
+    min-width: 500px;
+    display: block;
+    margin: 0px auto 55px;
+}
+/*Os Lencos*/
+#ProjLencos {
+    position: absolute;
+    grid-area: info;
+    top: 90px;
+    width:280px;
+    height: 300%;
+    min-height: auto;
+    border-right: 1px solid #F37970;
+
+}
+#firstLenco{
+    width: 80%;
+    min-width: 500px;
+    display: block;
+    margin: 24px auto 15px;
+    
+    padding-bottom: 0;
+}
+
+/*End - Os Lencos*/
+
+/*Stop! Endangered Animals*/
+.projImgA{
+    width: 50%;
+    min-width: 500px;
+    display: block;
+    margin: 50px auto 15px auto;
+}
+#notebkAni{
+    width: 80%;
+    min-width: 500px;
+    margin: 120px auto 15px;
+    padding: 0;
+}
+.frontbackNB{
+    display: inline-block;
+    width:50%;
+    margin: -2px;
+    margin-bottom: 10px;
+}
+/*End - Stop! Endangered Animals*/
+/*Mapping typefaces*/
+
+/*End - Mapping typefaces*/
+#hdg{
+    width: 280px;
+    margin: 10px auto;
+    display: block;
+}
+/*WellnessMatch*/
+#logoWellness{
+    padding: 0;
+    margin-top: -70px;
+    margin-bottom: 0;
+    width: 70%;
+}
+.linkComp{
+    color: #000;
+    }
+    
+#infosubtitle{
+    display: grid;
+    grid-template-columns: auto 50%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+        "subtitles   img";
+    padding: 80px 5px;
+
+}
+#subtitleWell{
+    grid-area: subtitles;
+    margin: auto;
+    padding: 0;
+}
+#inspo{
+    grid-area: img;
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+#wellnessIMG{
+    border-top: dotted 1px #f37970;
+    padding-top: 80px;
+}
+/*End --- WellnessMatch*/
+/*Engine Bay*/
+#engineIMG{
+    width: 80%;
+}
+footer{
+    display: block;
+    grid-area: footer;
+    z-index: 5;
+    position: relative;
+    /*bottom: 0;*/
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #f37970; 
+    background-color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    padding: 10px 0px;
+    font-size: .7em;
+}
+
+/*media & screensize*/
+@media (max-width: 800px){
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #col{
+        grid-template-columns: 100%;
+        grid-template-rows: 70px auto 40px;
+        grid-row-gap: 5px;
+    }
+    header{
+        position: fixed;
+        margin: 30px 25px;
+        z-index: 5;
+    }
+    .bckbt{
+        margin-right: -30px;
+        margin-left: 0px;
+    }
+    main{
+        grid-area: proj;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+        grid-row-gap: 20px;
+        grid-template-areas: 
+            "info"
+            "projImg";
+    }
+    .infoProj {
+        grid-area: info;
+        position: relative;
+        top: 5px;
+        width:auto;
+        height:auto;
+        padding:0px 25px 15px;
+        border-right: none;
+        border-bottom: 1px solid #F37970;
+    }
+    .broff{ display: none;}
+
+.proj { 
+    grid-area: projImg;
+    width: auto;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 0px;  
+}
+
+.projImg:first-of-type{
+    padding-top: 10px;
+    padding-bottom: 60px;
+    width: 70%;
+    min-width: 150px;
+}
+.projImg{
+    width: 90%;
+    min-width: 200px;
+    margin: 0px auto 15px;
+}
+.subtitle{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    min-width: 50px;
+    margin: 0px auto 20px;
+}
+/*Mobile-----blue details*/
+
+#bdwebpages{
+    width: 95%;
+    min-width: 200px;
+    margin-bottom: -10px;
+}
+/*Mobile----- Azores Box*/
+#azoresboxpages:first-of-type{
+    padding-top: 0;
+    width: 90%;
+    min-width: 200px;
+    
+}
+#hdg{
+    width: 150px;
+    margin: 10px auto 10px;
+    display: block;
+}
+/*Mobile----- Learning */
+.projImgLearn{
+    width: 80%;
+    min-width: 200px;
+    display: block;
+    margin: 0px auto 30px;
+    border: 1px solid rgb(238, 238, 238) ;
+    box-shadow: 15px 5px 15px rgb(236, 236, 236);
+
+    border-radius: 15px;
+}
+#gblack{
+    width: 50%;
+    min-width: 200px;
+  
+}
+/*Mobile----- Stop! Endangered Animals */
+.projImgA{
+    width: 90%;
+    min-width: 200px;
+    display: block;
+    margin: 10px auto 15px auto;
+}
+#notebkAni{
+    width: 90%;
+    min-width: 200px;
+    margin: 50px auto 15px;
+    padding: 0;
+}
+.frontbackNB{
+    display: inline-block;
+    width:50%;
+    margin: -2px;
+    margin-bottom: 10px;
+}
+/*Mobile------ End - Stop! Endangered Animals*/
+/*Mobile------ Os Lencos*/
+#ProjLencos {
+    position: relative;
+    grid-area: info;
+    top: 5px;
+    width: auto;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #F37970;
+    
+}
+#firstLenco{
+    
+    width: 90%;
+    min-width: 200px;
+    margin: 10px auto 15px;
+}
+
+/*Mobile------ End - Os Lencos*/
+/*WellnessMatch*/
+#logoWellness{
+    margin: 50px auto;
+}
+#infosubtitle{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "subtitles"
+        "img";
+    padding: 40px 5px;
+}
+
+#inspo{
+    grid-area: img;
+    width: 85%;
+    max-width: 600px;
+    display: block;
+    margin: 40px auto 0px;
+    padding-bottom: 50px;
+    border-bottom: 1px dotted #F37970;
+}
+#wellnessIMG{
+    border: none;
+    padding-top: -20px;
+    padding-top: 0;
+    width: 100%;
+}
+/*End --- WellnessMatch*/
+footer{
+    display: block;
+    grid-area: footer;
+    z-index: 5;
+    position: relative;
+    /*bottom: 0;*/
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #f37970; 
+    background-color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    padding: 9px 0px;
+    font-size: .7em;
+}
+}/*end mobile*/

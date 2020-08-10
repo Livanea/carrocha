@@ -1,0 +1,622 @@
+<!DOXTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finding Animals</title>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    
+<!–– THE MAP API FROM MAPBOX––>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400|Quicksand:200,400,500,700&display=swap" rel="stylesheet">
+
+
+    <style>
+        #map { 
+            position: fixed;
+        }
+        
+    </style>
+    </head>
+<body>
+<div id="col">
+    <div id="col1">
+        <header>
+            <a href="/portfolio.html">
+                <div class="bckbt"> </div> 
+            </a>
+        </header>
+        <div class="infoProj">
+            <h5>Finding Animals</h5>
+            <h6>UI & Web Design/Development</h6>
+            <p>Project developed for college, as part of my Interface and Web Development A.S.</p>
+            <br class="broff">
+            <p>Group project, developed by me and Katherine Soto</p>
+            <p>The briefing for this project consisted of using two API, and using them together.</p>
+            <p>MapBox and iNaturalist APIs.</p>
+            <p>Logo designed by me.</p>
+            <br >
+            <br class="broff">
+            <br class="broff">
+            <br class="broff">
+            <br class="broff">
+            <br class="broff">
+            <br class="broff">
+            <p class="date">Date: 2019</p>
+        </div>
+    </div>
+    <div class="proj">
+        <heading> 
+                <img src="Artboard%201.png" alt="logo" height="100" width="auto">
+                <!--- <h4>Locating Animals</h4>--->
+        </heading>
+            
+        <nav>
+            <div id="bar">
+                <div class="dropdown">
+                    <input type="checkbox" id="dropAnimals" > 
+                    <label for="dropAnimals">Wildlife </label>
+                        <ul id="animalsApi">
+                        </ul>
+                
+                </div>
+                
+            </div>        
+                
+        </nav>
+        
+        <main>
+            <div id="map" style='width: 77%; height: 70%;'></div>
+                
+            <div id="list">
+                <a href="#" class="resultsAnimals"></a>
+            </div>
+        
+        
+        </main>
+    </div>
+   
+    <footer>
+        
+        <p><strong>By:</strong> Carla Rocha and Katherine Soto</p>
+        
+    </footer>
+</div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fya2F0MTAwNCIsImEiOiJjanYxZW5yc20xdHNsNDlzMGdkbW8xZXI1In0.lYUyoUxdCERjqNa1xjb8-A';
+    
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-99.9, 41.5],
+            zoom: 1
+        });
+        //map controls Zoom
+       
+        var w = window.innerWidth;
+        var nav = new mapboxgl.NavigationControl();
+        if ( w > 850){
+            console.log("here")
+            map.addControl(nav, 'bottom-left');
+        }
+
+        window.addEventListener("resize", () => {
+            if ( w > 850){
+                map.addControl(nav, 'bottom-left');
+            } //mobile 
+            else {
+                map.removeControl(nav,'bottom-left');
+            }
+        });
+           
+        
+    </script>
+    <!---iNaturalist Api --->
+       <script> 
+        //1. add list animals to .animalsApi array
+        var data;
+        var el = document.createElement('div');
+            el.className = 'marker';
+
+
+        var xhttp = new XMLHttpRequest();
+            xhttp.addEventListener("load", whenLoaded);
+            xhttp.open("GET", "https://api.inaturalist.org/v1/observations?day=30&month=4&year=2019&order=desc&order_by=created_at");
+            xhttp.send();
+           
+          
+        function whenLoaded() {
+            
+            data = JSON.parse(xhttp.responseText);
+            data = data.results.sort(function(a,b) {
+               //console.log(a,b);
+                if (a.species_guess == null) return -1;
+                if (b.species_guess == null) return 1;
+                
+                if(a.species_guess < b.species_guess) return -1;
+                if(a.species_guess > b.species_guess) return  1;
+                return 0;
+                
+            });
+            
+            //Throw out garbage
+            var temp = [];
+            for (var i=0; i<data.length; i++) {
+                if (data[i].species_guess != null)
+                    temp.push(data[i]);
+            }
+            data = temp;
+            
+            var results = document.getElementById("animalsApi");
+            
+            var temp = "";
+            
+            for (var i in data) {
+                if ( data[i].taxon == null){
+                    temp += '<li><a href="#" onclick="loadResult('+i+')"> <img style="background-color: rgb(161, 161, 161), background-size: contain; ">' + data[i].species_guess + "</a></li>";    
+                }else{    if ( data[i].taxon.default_photo == null){
+                        temp += '<li><a href="#" onclick="loadResult('+i+')"> <img style="background-color: rgb(161, 161, 161), background-size: contain; ">' + data[i].species_guess + "</a></li>";    
+                    }
+                    else {
+                        temp += '<li><a href="#" onclick="loadResult('+i+')"> <img src="' + data[i].taxon.default_photo.square_url + '">' + data[i].species_guess + "</a></li>";
+                    }
+                }
+            }
+            
+            animalsApi.innerHTML = temp;
+            
+            map.zoomTo(8);
+            marker = new mapboxgl.Marker(el);
+        }
+           
+        //2. select animal from dropdown
+       
+        results.addEventListener("click", loadResults);      
+            
+        function loadResult(i){
+           
+            //Step 1: Assign pin to map
+            //marker.addTo(map);
+           
+            //Step 2:Set Location
+            
+            var loc = data[i].location.split(",");
+            //console.log(loc);
+            loc[0] = parseFloat(loc[0]);
+            loc[1] = parseFloat(loc[1]);
+            //console.log(loc);
+            
+            marker.setLngLat([loc[1],loc[0]]);
+            marker.addTo(map);
+            
+            map.flyTo({
+                center: [loc[1],loc[0]]
+                });
+
+                //Step 3: Populate infobox and display
+            
+            var tempAnimals = "";
+            
+            //for (var i in data) {
+                
+                tempAnimals += '<h3><center>' +data[i].species_guess+ "</center></h3>";
+                tempAnimals += '<center><img src="' + data[i].taxon.default_photo.medium_url + '"></center>';
+                tempAnimals += '<p>'+"<b>Family: </b>"+data[i].taxon.iconic_taxon_name+'</p>';
+                tempAnimals += '<p>'+"<b>User Name: </b>"+data[i].user.name+'</p>';
+                tempAnimals += '<p>'+"<b>Location: </b>"+data[i].place_guess+'</p>';
+                tempAnimals += '<p>'+"<b>Date: </b> "+data[i].created_at_details.date+'</p>';
+                
+                /*tempAnimals += '<div><img src="'+data[i].default_photo.square_url'</div>';
+                */
+                
+            //}
+            var results = document.getElementById("list");
+            
+            results.style.display = "block";
+            
+            list.innerHTML = tempAnimals;
+        }
+           
+        loadResult.features.forEach(function(marker) {   
+        var el = document.createElement('div');
+            el.className = 'marker';
+
+        // make a marker for each feature and add to the map
+        new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+            .addTo(map);
+
+        });                    
+
+    </script>
+
+    
+    <style>
+        
+       @import url('https://fonts.googleapis.com/css?family=Montserrat:100,400|Roboto:100,400,400i,700');
+       /*css for portfolio section*/
+       #col{
+            display: grid;
+            grid-template-columns: 365px auto;
+            grid-column-gap: 0;
+            grid-template-areas: 
+            "col1       proj";
+        }
+        #col1{
+            grid-area: col1;
+            margin: 0;
+        }
+        .bckbt{
+            height: 40px;
+            width: 40.1px;
+            margin: 6px 43px 15px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("/icons/back.png");
+            z-index: 2;
+        }
+        .bckbt:hover{
+            background-image: url("/icons/backhover.png");
+        }
+        .infoProj {
+            position: fixed;
+            width:280px;
+            grid-area: info;
+            margin: 0px 3px 0px;
+            padding: 20px 40px;
+            height: 100%;
+            border-right: 1px solid #F37970;
+            
+        }
+    .infoProj h5{
+        font-family: 'Quicksand', sans-serif;
+        color: #BB6248;
+        font-size: 1.2em;
+        font-weight: 500;
+        margin: 22px 0 0; 
+    }
+    .infoProj h6{
+        font-family: 'Quicksand', sans-serif;
+        font-size: .9em;
+        line-height: 1.8em;
+        font-weight: 200;
+        border-bottom: 3px solid #F37970;
+        margin: 0;
+    }
+
+    .infoProj p{
+        font-family: 'Montserrat', Raleway, sans-serif;
+        font-size: .9em;
+        line-height: 1.5em;
+    } 
+    .infoProj p:first-of-type{
+        margin-top: 25px;
+    }
+    .date{
+        font-weight: 200;
+    }
+        
+/*css for portfolio section*/ 
+
+        #proj {
+            grid-area: proj;
+            margin:0; 
+            padding:0;
+            width: 100%;
+            min-width: 60%;
+
+            display:grid;
+            grid-template-rows: 120px 50px 70% 5%;
+            grid-gap: 0px;
+            grid-template-areas: 
+                    "heading "
+                    "nav"
+                    "main"
+                    "footer"; 
+            /*overflow: hidden;*/
+        }
+     
+        heading{
+            grid-area: heading;
+        }
+        heading img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            /*margin-bottom: 30px;*/
+        }
+        nav{
+            grid-area: nav;
+            width: 100.5%;
+            height: 50px;
+            background-color: #E6E6E6;
+            z-index: 1; 
+            padding: 0;
+            min-height: 45px;
+        }
+        #bar{
+            margin: 5px auto;
+            width: 100%;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            z-index: 1;
+        }
+        input[type="checkbox"] {
+            display:none;
+        }
+
+        #animalsApi {
+            display: none;
+            margin-top: 35px;  
+        }
+       
+        #dropAnimals, label {
+            cursor: pointer;
+            float: left;
+            height: auto;
+            width: 25%;
+            margin: 0px;
+            padding: 10px 15px;
+            border-right: 1px solid #ccc;
+        }
+       
+        label:after{
+            content: "  ▽  ";
+            font-size: .75em;
+        }
+        #dropAnimals:checked ~ #animalsApi{
+                display: block;
+                height: 350px;
+                z-index: 100;
+        }
+        #dropAnimals:checked + label:after{
+            content: "  ▼  ";
+            font-size: .75em;
+        }
+        #dropAnimals, label:hover{
+            background-color: #CCCCCC;
+        }
+
+        #animalsApi {
+            overflow: auto;
+            list-style:none;
+            position: absolute;
+            display: none;
+            top: 20%;
+            height: auto;
+            width: 20%;
+            max-height: 60%;
+            
+            height: auto;
+            box-shadow: 2px 2px 5px 0px rgba(0,0,0,.1);
+            background-color: #E6E6E6;                  
+            border-radius: 4px;   
+        }
+            
+        #animalsApi li{
+            padding: 20px 20px;
+            border-bottom: 1px solid #43BCB3;
+            height: auto;
+            text-align: left;
+            margin-top: auto;
+            margin-bottom: auto;
+            align-self: center;
+        }  
+        #animalsApi li:first-child {
+            padding-top: 20px;
+        }
+        #animalsApi li:last-child {
+            border-bottom: none; 
+            padding-bottom: 15px;
+        }
+        
+        #animalsApi img{
+            float: left;
+            height: 35px;
+            width: 35px;
+            padding-right: 30px;
+            padding-left: 10px;
+            padding-bottom: 15px; 
+        }
+        a{
+            color: #000;
+            text-decoration: none;
+            font-weight: 100;
+         }
+       
+         a:link:hover {
+            font-weight: normal;
+            background-color: #E6E6E6;
+        } 
+        main {
+            grid-area: main;
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            margin-right: -100px;        
+        }
+        #map{
+            height:auto;
+            min-height: 500px;
+            top:175px;
+        }
+        .marker {
+            background-image: url('markerArtboard%201.png');
+            background-size: cover;
+            width: 35px;
+            height: 45px;
+          
+            cursor: pointer;
+        }
+        #list{
+            display:none;
+            position: absolute;
+            overflow: auto;
+            top:30%;
+            right:2%;
+            background-color: rgba(104, 202, 195, .9);
+            width: 240px;
+            min-width: 100px;
+            height: auto;
+            padding: 5px 20px 10px 20px;
+            justify-self:center;
+            align-content: center;
+            max-height: 65%;
+            
+            box-shadow: 2px 2px 5px 0px rgba(0,0,0,.1);       border-radius: 4px;
+        }
+        
+        #list img{
+           
+            width: 200px;
+            max-height: 150px;
+        }
+      
+        footer{
+            grid-area: footer;
+            position: fixed;
+            width: 100%;
+            height: auto;
+            background-color: #E6E6E6;
+            top: 94%;
+            left: 0;
+            padding: 10px;          
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: .7em;
+            line-height: 8px;
+            
+        }
+        footer p {
+            font-weight: 100;
+        }
+        
+    @media (max-width: 700px){
+        body{margin: 0;}
+        #col{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto;
+            grid-column-gap: 10px;
+            grid-template-areas: 
+            "col1"
+            "proj";
+        }
+ 
+    .bckbt{
+        margin-top: 30px;
+        margin-left: 25px;
+    }
+    .infoProj {
+        position: relative;
+        width:auto;
+        margin: 0;
+        padding: 5px 25px;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #F37970;
+    }
+
+    .broff{display: none;}
+/*Mobile-----css for portfolio section*/ 
+    
+    #proj {
+        grid-area: proj;
+        min-width: 100%;
+        display:grid;
+        grid-template-rows: 15% 50px 500px 5%;
+        grid-template-areas: 
+            "heading "
+            "nav"                    
+            "main"
+            "footer"; 
+        }
+     
+        heading img{
+            width: 80px;
+            height: auto;
+            padding: 15px;
+   
+        }
+        nav{
+            height: 50px;
+            min-height: 35px;
+        }
+   
+        #dropAnimals, label {
+            width: 45%;
+            margin: 0px;
+            padding: 10px 15px;
+            border-right: 1px solid #ccc;
+        }
+       
+        label:after{
+            content: "  ▽  ";
+            font-size: .75em;
+        }
+        #dropAnimals:checked ~ #animalsApi{
+                display: block;
+                height: 48px;
+                z-index: 100;
+        }
+ 
+        #animalsApi {
+            overflow: scroll;
+            position: relative;
+            display: none;
+            height: auto;
+            width: 43%;
+            max-height: 350px;
+            min-height: 200px;
+        }
+            
+        #animalsApi li{
+            padding: 20px 0px;
+        }  
+        #animalsApi img{
+            padding: 0px 5px 5px 15px;
+        }
+        
+        main{
+            grid-area: main;
+            margin: 0;
+            padding: 0;}
+        #map{
+            position: absolute;
+            top: auto;
+            left:auto;
+            width: auto;
+            height: auto;
+            overflow-x: hidden; 
+            margin: 0px 10%;
+        }
+        
+        #list{
+            display:none;
+            position: absolute;
+            overflow: auto;
+            top:auto;
+            left: 0;
+            right:0;
+            margin: 420px 10% 20px;
+         
+            background-color: rgba(104, 202, 195, 1);
+            width: 70%;
+            min-width: 150px;
+           z-index: 10;
+        }
+        footer{
+            display: none;
+        }
+       
+        }/*End Media/Mobile*/
+        
+    </style>
+    </body>
+</html>
