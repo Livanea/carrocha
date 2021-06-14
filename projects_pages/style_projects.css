@@ -59,7 +59,7 @@ h5{
     font-family: 'Quicksand', sans-serif;
     color: #BB6248;
     font-size: 1.2em;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 20px;
 }
 h6{
@@ -67,6 +67,7 @@ h6{
     font-size: .9em;
     line-height: 1.8em;
     font-weight: 200;
+    padding-bottom: 3px;
     border-bottom: 3px solid #F37970;
 }
 
@@ -85,10 +86,10 @@ p a:hover{
     margin-top: 25px;
 }
 .date{
-    font-weight: 300;
+    font-weight: 400;
 }
 .hdg{
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .proj {
@@ -244,6 +245,10 @@ p a:hover{
     padding-top: 80px;
 }
 /*End --- WellnessMatch*/
+/*Engine Bay*/
+#engineIMG{
+    width: 80%;
+}
 footer{
     display: block;
     grid-area: footer;
